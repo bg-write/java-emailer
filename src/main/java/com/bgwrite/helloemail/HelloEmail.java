@@ -56,7 +56,7 @@ public class HelloEmail {
                     // BEFORE I SEND, MAKE SURE THE FOLLOWING LINKS ARE UPDATED AND TRACKABLE
                     "<h1>Theo Alexander - Sunbathing Through a Glass Screen (2021)</h1>" +
                     "<div>Brady Gerber | Nov 29, 2021 | <a href='#'>Read Online</a></div>" +
-                    "<div><a href='https://www.youtube.com/watch?v=dPBrwz_T8Fw'><img alt='A Wednesday Morning, Somewhere' src='https://picsum.photos/750?random=1.webp'/></a></div>" +
+                    "<div><a href='https://www.youtube.com/watch?v=dPBrwz_T8Fw'><img alt='A Wednesday Morning Somewhere' src='https://picsum.photos/750?random=1.webp'/></a></div>" +
                     "<div><small><i>Click the image to listen.</i></small></div>" +
                     "</div>" +
                     // AGAIN, MAKE SURE THAT THE ABOVE HAS BEEN UPDATED!
