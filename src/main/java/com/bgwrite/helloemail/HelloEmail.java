@@ -51,27 +51,36 @@ public class HelloEmail {
 
             String subjectNewsletter = "Theo Alexander - Sunbathing Through a Glass Screen (2021)";
             String htmlNewsletter =
-                    "<body>" +
-                    "<div style='margin-left:2.5rem;margin-right:2.5rem'>" +
+                    "<html>" +
+                    "<head>" +
+                    "<style>" +
+                            "#body {font-size: 16px}" +
+//                            "@media screen and (min-width: 500px) {.colored {color: red;}}" +
+                    "</style>" +
+                    "</head>" +
+
+                    "<body id='body'>" +
+                    "<div>" +
                     // BEFORE I SEND, MAKE SURE THE FOLLOWING LINKS ARE UPDATED AND TRACKABLE
-                    "<h1>Theo Alexander - Sunbathing Through a Glass Screen (2021)</h1>" +
-                    "<div>Brady Gerber | Nov 29, 2021 | <a href='#'>Read Online</a></div>" +
-                    "<div><a href='https://www.youtube.com/watch?v=dPBrwz_T8Fw'><img alt='A Wednesday Morning Somewhere' src='https://picsum.photos/750?random=1.webp'/></a></div>" +
+                    "<h1>Theo Alexander - Sunbathing Through a Glass Screen</h1>" +
+                    "<div>Brady Gerber | Nov 30, 2021 | <a href='#'>Read Online</a></div>" +
+                    "<div><a href='https://www.youtube.com/watch?v=dPBrwz_T8Fw'><img alt='A Wednesday Morning Somewhere' src='https://picsum.photos/440?random=1.webp'/></a></div>" +
                     "<div><small><i>Click the image to listen.</i></small></div>" +
                     "</div>" +
                     // AGAIN, MAKE SURE THAT THE ABOVE HAS BEEN UPDATED!
 
                     // THE ACTUAL REVIEW
-                    "<div style='margin-left:2.5rem;margin-right:2.5rem;font-size:16px'>" +
-                    "<p>In a very weird year, this remains my favorite album of 2021. With 2020 being the last year that many of the blockbuster albums recorded pre-COVID were released, 2021 felt full of shrugs. The good news is that this kind of year allows for younger and less popular artists to stand out in my queue.</p>" +
+                    "<div>" +
+                    "<p class='colored'>In a very weird year, this remains my favorite album of 2021. With 2020 being the last year that many of the blockbuster albums recorded pre-COVID were released, 2021 felt full of shrugs. The good news is that this kind of year allows for younger and less popular artists to stand out in my queue.</p>" +
                     "<p>I don't think Theo Alexander is that obscure - I've been following him for a long time - but this felt like the best possible year for his music to find what I hoped would be a larger audience.</p>" +
                     "<p>I like it.</p>" +
                     "</div>" +
 
                     // CLOSING CREDITS
-                    "<p style='margin-left:2.5rem;margin-right:2.5rem;font-size:16px'><i>Onward,<br>-b</i></p><br>" +
-                    "<div style='margin-left:2.5rem;margin-right:2.5rem'>" +
-                    "<small><i><p>My name is Brady Gerber, and I'm a music journalist (New York Magazine, Pitchfork, Rolling Stone, etc) sending out new album reviews every possible Wednesday morning by 7AM ET. " +
+                    "<p><i>Onward,<br>-b</i></p><br>" +
+                    "<div>" +
+                    "<small><i>" +
+                    "<p>My name is Brady Gerber, and I'm a music journalist (New York Magazine, Pitchfork, Rolling Stone, etc) sending out new album reviews every possible Wednesday morning by 7AM ET. " +
                     "This email was sent from a Java program that I built with the JavaMail API and Lorem Picsum. " +
                     "If you'd like to subscribe, you can sign up on my <a href='https://bit.ly/3DGbHnj'>website</a>.</p>" +
                     "<p>Want to support the newsletter? You're already helping by reading this sentence. You also can donate to my <a href='https://bit.ly/3CLgEtq'>coffee fund</a> and/or forward this email to just one new friend. Sharing really is caring." +
