@@ -2,3 +2,4 @@
 out/
 *.class
 .env
+src/main/java/com/bgwrite/helloemail/JavaMail.java
