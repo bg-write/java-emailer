@@ -17,7 +17,7 @@ public class HelloEmail {
         Properties properties = new Properties();
 
         properties.put("mail.smtp.auth", dotenv.get("MAIL_SMTP_AUTH"));
-        properties.put("mail.smtp.starttls.enable", dotenv.get("MAIL_SMTP_STARTTLS.ENABLE"));
+        properties.put("mail.smtp.ssl.enable", dotenv.get("MAIL_SMTP_STARTTLS.ENABLE"));
         properties.put("mail.smtp.host", dotenv.get("MAIL_SMTP_HOST"));
         properties.put("mail.smtp.port", dotenv.get("MAIL_SMTP_PORT"));
 
@@ -43,57 +43,38 @@ public class HelloEmail {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(myAccountEmail));
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
-            message.setRecipient(Message.RecipientType.CC, new InternetAddress("bradywgerber@gmail.com"));
 
-            String subjectTest = "Bailey, does this work!";
+            String subjectTest = "Write Your Subject Line Here";
             String htmlTest =
-                    "<body><p>I'm building a new email sending from scratch. Let me know if you get this or if any weird errors come up?</p><p>Brady</p></body>";
-
-            String subjectNewsletter = "Theo Alexander - Sunbathing Through a Glass Screen (2021)";
-            String htmlNewsletter =
-                    "<html>" +
+            "<html>" +
                     "<head>" +
-                    "<style>" +
-                            "#body {font-size: 16px}" +
-//                            "@media screen and (min-width: 500px) {.colored {color: red;}}" +
-                    "</style>" +
+                        "<style>" +
+                            ".style {" +
+                                "font-size: 26px;" +
+                                "font-family: Georgia, serif;" +
+                                "color: red;" +
+                            "}" +
+                            "@media screen and (min-width: 500px) {" +
+                                ".style {" +
+                                    "font-size: 21px;" +
+                                    "font-family: Georgia, serif;" +
+                                "}" +
+                            "}" +
+                        "</style>" +
                     "</head>" +
+                    "<body class='style'>" +
+                        "<div>" +
+                            "<img alt='A Wednesday Morning Somewhere' src='https://picsum.photos/440?random=1.webp'/ style='border: 1px solid black'>" +
+                        "</div>" +
+                        "<p>Hello, World.</p>" +
+                        "<div>" +
+                            "<small><i><p>CAN-SPAM legislation requires newsletter emails to have physical addresses in the footer, so make sure to include an address here.</p></i></small>" +
+                        "</div>" +
+                    "</body>" +
+            "</html>";
 
-                    "<body id='body'>" +
-                    "<div>" +
-                    // BEFORE I SEND, MAKE SURE THE FOLLOWING LINKS ARE UPDATED AND TRACKABLE
-                    "<h1>Theo Alexander - Sunbathing Through a Glass Screen</h1>" +
-                    "<div>Brady Gerber | Nov 30, 2021 | <a href='#'>Read Online</a></div>" +
-                    "<div><a href='https://www.youtube.com/watch?v=dPBrwz_T8Fw'><img alt='A Wednesday Morning Somewhere' src='https://picsum.photos/440?random=1.webp'/></a></div>" +
-                    "<div><small><i>Click the image to listen.</i></small></div>" +
-                    "</div>" +
-                    // AGAIN, MAKE SURE THAT THE ABOVE HAS BEEN UPDATED!
-
-                    // THE ACTUAL REVIEW
-                    "<div>" +
-                    "<p class='colored'>In a very weird year, this remains my favorite album of 2021. With 2020 being the last year that many of the blockbuster albums recorded pre-COVID were released, 2021 felt full of shrugs. The good news is that this kind of year allows for younger and less popular artists to stand out in my queue.</p>" +
-                    "<p>I don't think Theo Alexander is that obscure - I've been following him for a long time - but this felt like the best possible year for his music to find what I hoped would be a larger audience.</p>" +
-                    "<p>I like it.</p>" +
-                    "</div>" +
-
-                    // CLOSING CREDITS
-                    "<p><i>Onward,<br>-b</i></p><br>" +
-                    "<div>" +
-                    "<small><i>" +
-                    "<p>My name is Brady Gerber, and I'm a music journalist (New York Magazine, Pitchfork, Rolling Stone, etc) sending out new album reviews every possible Wednesday morning by 7AM ET. " +
-                    "This email was sent from a Java program that I built with the JavaMail API and Lorem Picsum. " +
-                    "If you'd like to subscribe, you can sign up on my <a href='https://bit.ly/3DGbHnj'>website</a>.</p>" +
-                    "<p>Want to support the newsletter? You're already helping by reading this sentence. You also can donate to my <a href='https://bit.ly/3CLgEtq'>coffee fund</a> and/or forward this email to just one new friend. Sharing really is caring." +
-                    "<p>'Fill up your mind with all it can know ... Don't forget that your body will let it all go ...' - Jeff Tweedy</p>" +
-                    "<p><a href='https://bit.ly/3kZ3za6'>Twitter</a> | <a href='https://bit.ly/3CKrT5n'>LinkedIn</a> | <a href='https://bit.ly/3cDGmWc'>GitHub</a></p>" +
-                    "<p>If you'd like to stop receiving these emails, you can <a href='https://bit.ly/3ryls3N'>unsubscribe</a>, no problem.</p>" +
-                    "<p>In accordance to the CAN-SPAM legislation that requires these emails to have physical addresses in the footer, here's the address of the USA R&D center for JetBrains, the company that builds the Intellij IDEA IDE that I'm using for Java: 2 Seaport Lane, Suite 8C, 8th Fl // Seaport EAST, Boston, MA 02210.</p>" +
-                    "</i></small>" +
-                    "</div>" +
-                    "</body>";
-
-            message.setSubject(subjectNewsletter); // either "subjectTest" or "subjectNewsletter"
-            message.setContent(htmlNewsletter, "text/html"); // either "htmlTest" or "htmlNewsletter"
+            message.setSubject(subjectTest);
+            message.setContent(htmlTest, "text/html");
 
             return message;
         } catch (Exception ex) {
